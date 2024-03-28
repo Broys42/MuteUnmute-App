@@ -1,4 +1,5 @@
 import keyboard
+import os
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QKeySequenceEdit, QLabel, QComboBox
@@ -12,9 +13,12 @@ from AudioSource import AudioSource
 from ViewModel import ViewModel
 
 class UIImporter(QMainWindow):
-    def __init__(self, ui_file):
+    def __init__(self):
         super().__init__()
-        loadUi(ui_file, self)
+        currentdir = os.path.dirname(os.path.abspath(__file__))
+        uipath = os.path.join(currentdir, "MuteUnmuteUI", "MuteUnmuteUI.ui")
+
+        loadUi(uipath, self)
 
 class UIConfigurator(QMainWindow):
     def __init__(self, window: QMainWindow, viewModel : ViewModel):

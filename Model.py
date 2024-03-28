@@ -18,7 +18,7 @@ def main():
 def openWindow(model: Model):
     if __name__ == "__main__":
         app = QApplication(sys.argv)
-        window = UIImporter("MuteUnmuteUI.ui")
+        window = UIImporter()
         configurator = UIConfigurator(window, model.viewModel)
         window.show()
         sys.exit(app.exec())

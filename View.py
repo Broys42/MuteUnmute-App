@@ -17,7 +17,7 @@ class UIImporter(QMainWindow):
         super().__init__()
         currentdir = os.path.dirname(os.path.abspath(__file__))
         uipath = os.path.join(currentdir, "MuteUnmuteUI", "MuteUnmuteUI.ui")
-
+        
         loadUi(uipath, self)
 
 class UIConfigurator(QMainWindow):

@@ -17,7 +17,7 @@ class UIImporter(QMainWindow):
         super().__init__()
         currentdir = os.path.dirname(os.path.abspath(__file__))
         uipath = os.path.join(currentdir, "MuteUnmuteUI", "MuteUnmuteUI.ui")
-        
+
         loadUi(uipath, self)
 
 class UIConfigurator(QMainWindow):
@@ -49,7 +49,7 @@ class UIConfigurator(QMainWindow):
         self.comboBoxOfAudioSources.mousePressEvent = self.comboBoxIsOpen
 
         #When Select Item in ComboBox
-        self.comboBoxOfAudioSources.activated.connect(self.on_combo_box_activated)
+        self.comboBoxOfAudioSources.activated.connect(self.comboBoxOfAudioSourceActivated)
 
         self.comboBoxOfAudioSources.setCurrentIndex(-1)
 
@@ -89,7 +89,7 @@ class UIConfigurator(QMainWindow):
                     self.comboBoxOfAudioSources.setCurrentIndex(index)
                 print(f"Item at index {index}: {item_data.name} with pid {item_data.pid}")
 
-    def on_combo_box_activated(self):
+    def comboBoxOfAudioSourceActivated(self):
         selected_item = self.comboBoxOfAudioSources.itemData(self.comboBoxOfAudioSources.currentIndex(), role=Qt.ItemDataRole.UserRole)
 
         if isinstance(selected_item, AudioSource):
